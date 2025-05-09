@@ -5,7 +5,7 @@ from collections import Counter
 app = Flask(__name__)
 VOTE_FILE = 'votes.json'
 
-# Create votes.json if missing
+# Create votes.json if it doesn't exist
 if not os.path.exists(VOTE_FILE):
     with open(VOTE_FILE, 'w') as f:
         json.dump([], f)
@@ -40,4 +40,5 @@ def reset():
     return jsonify({'message': 'Votes reset'}), 200
 
 if __name__ == '__main__':
-    port = int(os.environ
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
