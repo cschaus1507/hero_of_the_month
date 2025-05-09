@@ -1,14 +1,18 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import json, os
 from collections import Counter
 
 app = Flask(__name__)
 VOTE_FILE = 'votes.json'
 
-# Create votes.json if it doesn't exist
+# Ensure votes.json exists
 if not os.path.exists(VOTE_FILE):
     with open(VOTE_FILE, 'w') as f:
         json.dump([], f)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/vote', methods=['POST'])
 def vote():
