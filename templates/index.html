@@ -6,57 +6,145 @@
   <title>Noble Hero Vote</title>
   <style>
     body {
-      background: url('Clash Of Clans Logo.jpeg') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(to right, #1e3a8a, #3b82f6);
       font-family: 'Supercell-Magic', sans-serif;
       color: #fff8dc;
       text-align: center;
       padding: 2rem;
+      margin: 0;
     }
-    h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px #000; }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px #000;
+    }
+
     .form-container {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.75);
       padding: 2rem;
       border-radius: 20px;
       max-width: 500px;
       margin: auto;
       box-shadow: 0 0 20px #fbbf24;
     }
-    label { font-size: 1.2rem; display: block; margin: 1rem 0 0.5rem; }
+
+    label {
+      font-size: 1.2rem;
+      display: block;
+      margin: 1rem 0 0.5rem;
+    }
+
     select, button {
-      width: 100%; padding: 1rem; border: none;
-      border-radius: 10px; font-size: 1rem; margin-bottom: 1rem;
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
-    select { background-color: #fef3c7; color: #111827; }
+
+    select {
+      background-color: #fef3c7;
+      color: #111827;
+    }
+
     button {
-      background-color: #f59e0b; color: white; cursor: pointer;
-      font-weight: bold; transition: background-color 0.3s;
+      background-color: #f59e0b;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
     }
-    button:hover { background-color: #d97706; }
+
+    button:hover {
+      background-color: #d97706;
+    }
+
     .reveal {
-      margin-top: 1.5rem; font-size: 1.3rem;
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
       animation: flicker 1s infinite alternate;
     }
-    @keyframes flicker { from { opacity: 1; } to { opacity: 0.5; } }
+
+    #results {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      box-shadow: 0 0 10px #fbbf24;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .result-entry {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    @keyframes flicker {
+      from { opacity: 1; }
+      to { opacity: 0.5; }
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .form-container, #results {
+        padding: 1rem;
+      }
+      select, button {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>🏆 Noble Hero of the Month 🏆</h1>
+  <h1>Noble Hero of the Month</h1>
+  <p style="max-width: 600px; margin: 0 auto 1.5rem; font-size: 1rem; color: #e0e7ff;">
+    A true Noble Hero exemplifies the spirit of the clan — they are noble in attitude, helpful and active in chat, generous with donations, and efficient in their attacks. Whether it’s pulling off epic three-stars or supporting fellow members, this hero stands out as an all-around great contributor.
+  </p>
   <div class="form-container">
     <form id="heroForm">
       <label for="hero">Choose your champion:</label>
       <select id="hero" name="hero" required>
         <option value="" disabled selected>-- Select a Hero --</option>
-        <!-- sorted hero list -->
-        <option>Andrew</option><option>Beardsly</option><option>Berk</option><option>bisno das</option>
-        <option>blu</option><option>Crabulous</option><option>dlud</option><option>eve</option>
-        <option>Falco</option><option>farhad</option><option>Felske</option><option>ikoeto</option>
-        <option>Jeremy</option><option>Jilge</option><option>Jittr_33</option><option>kryshian</option>
-        <option>malemimino</option><option>MAROUNOVIC</option><option>Master Brew</option>
-        <option>Notorious BTG</option><option>ou</option><option>Pessimistic</option><option>Queen Mia</option>
-        <option>Rahul</option><option>Raiders</option><option>Shenanigans</option><option>squishy</option>
-        <option>SUSPECT</option><option>Tete-RX</option><option>The Future</option><option>Tony</option>
-        <option>Torhub</option><option>woody</option>
+        <option>Andrew</option>
+        <option>Beardsly</option>
+        <option>Berk</option>
+        <option>bisno das</option>
+        <option>blu</option>
+        <option>Crabulous</option>
+        <option>dlud</option>
+        <option>eve</option>
+        <option>Falco</option>
+        <option>farhad</option>
+        <option>Felske</option>
+        <option>ikoeto</option>
+        <option>Jeremy</option>
+        <option>Jilge</option>
+        <option>Jittr_33</option>
+        <option>kryshian</option>
+        <option>malemimino</option>
+        <option>MAROUNOVIC</option>
+        <option>Master Brew</option>
+        <option>Notorious BTG</option>
+        <option>ou</option>
+        <option>Pessimistic</option>
+        <option>Queen Mia</option>
+        <option>Rahul</option>
+        <option>Raiders</option>
+        <option>Shenanigans</option>
+        <option>squishy</option>
+        <option>SUSPECT</option>
+        <option>Tete-RX</option>
+        <option>The Future</option>
+        <option>Tony</option>
+        <option>Torhub</option>
+        <option>woody</option>
       </select>
       <button type="submit">⚔️ Cast Your Vote ⚔️</button>
     </form>
@@ -64,7 +152,30 @@
       🧙‍♂️ The Oracle speaks... check back soon to see who's leading!
     </div>
   </div>
+
+  <div id="results">
+    <h2>⚔️ Leading Heroes</h2>
+    <div id="resultsContainer">Loading current votes...</div>
+  </div>
+
   <script>
+    async function fetchResults() {
+      try {
+        const res = await fetch('/results');
+        const data = await res.json();
+        const container = document.getElementById('resultsContainer');
+        container.innerHTML = '';
+        data.forEach(([name, votes], index) => {
+          const el = document.createElement('div');
+          el.className = 'result-entry';
+          el.innerText = `#${index + 1} - ${name}: ${votes} vote${votes !== 1 ? 's' : ''}`;
+          container.appendChild(el);
+        });
+      } catch (err) {
+        document.getElementById('resultsContainer').innerText = 'Failed to load results.';
+      }
+    }
+
     document.getElementById('heroForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const hero = document.getElementById('hero').value;
@@ -78,9 +189,15 @@
       .then(() => {
         document.getElementById('heroForm').reset();
         document.getElementById('reveal').style.display = 'block';
+        fetchResults();
       })
       .catch(err => alert('Failed to submit vote!'));
     });
+
+    // Initial fetch
+    fetchResults();
+    // Refresh standings every 15 seconds
+    setInterval(fetchResults, 15000);
   </script>
 </body>
 </html>
